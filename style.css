@@ -33,10 +33,11 @@ header img {
   margin-left: 10px;
 }
 
+/* NAV LINK styleS */
 nav ul {
   display: flex;
   gap: 20px;
-  list-style: none;
+  list-style: none; /* REMOVE BULLET MARKS */
 }
 
 nav ul li a {
@@ -48,13 +49,14 @@ nav ul li a {
 
 section#hero {
   height: 700px;
-  max-width: 1200px;
-  width: 100%;
+  max-width: 1200px; /* responsive sizing */
+  width: 100%; /* responsive sizing */
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(./images/img-mission-background.webp);
+    url(./images/img-mission-background.webp); /* add opacity to background img */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* flex settings */
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -67,17 +69,20 @@ section#hero {
 }
 
 /*TEA OF THE MONTH SECTION*/
+section.totm {
+  max-width: 1000px; /* Container responsive size */
+  width: 100%;
+  margin: 0 auto;
+}
 .totm h2,
 .totm h3 {
   text-align: center;
 }
 
 #totm-container {
+  /* flex settings */
   display: flex;
   flex-wrap: wrap;
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
   justify-content: center;
   gap: 20px;
 }
@@ -91,6 +96,37 @@ section#hero {
   width: 300px;
   height: 200px;
 }
-#totm-container div {
-  flex: 0 0 300px;
+
+/* LOCATION STYLES */
+
+div.location-card {
+  /*  OUTSIDE container */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(./images/img-locations-background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 1rem;
+  height: 500px;
+}
+
+div.location-card h2 {
+  /* CONTAINER HEADING OUTSIDE OF FLEX */
+  text-align: center;
+}
+
+div.locations {
+  /* FLEX CONTAINER */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.location-item {
+  /* FLEX ITEMS */
+  background-color: black;
+  width: 300px;
+  min-height: 300px;
+  padding: 1rem;
 }
