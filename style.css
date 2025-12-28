@@ -1,0 +1,96 @@
+/*Global styles*/
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: seashell;
+  font-size: 22px;
+  padding: 10px;
+}
+
+/*HEADER SECTION*/
+header {
+  height: 69px;
+  border-bottom: 1px solid seashell;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+header img {
+  height: 50px;
+  width: fit-content;
+  margin-left: 10px;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: seashell;
+  text-decoration: underline;
+}
+
+/* HERO SECTION*/
+
+section#hero {
+  height: 700px;
+  max-width: 1200px;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(./images/img-mission-background.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.heading-background {
+  text-align: center;
+  background-color: black;
+  width: 1200px;
+}
+
+/*TEA OF THE MONTH SECTION*/
+.totm h2,
+.totm h3 {
+  text-align: center;
+}
+
+#totm-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 20px;
+}
+
+#totm-container p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#totm-container img {
+  width: 300px;
+  height: 200px;
+}
+#totm-container div {
+  flex: 0 0 300px;
+}
