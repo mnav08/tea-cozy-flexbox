@@ -1,4 +1,20 @@
-/*Global styles*/
+/* =========================
+   CSS VARIABLES
+   ========================= */
+:root {
+  --color-bg: #000;
+  --color-text: seashell;
+  --color-overlay: rgba(0, 0, 0, 0.45);
+
+  --font-base: Helvetica, Arial, sans-serif;
+
+  --max-width: 1200px;
+  --gap: 1.25rem;
+}
+
+/* =========================
+   BASE / RESET
+   ========================= */
 * {
   box-sizing: border-box;
 }
@@ -9,123 +25,159 @@ body {
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  background-color: black;
-  color: seashell;
-  font-size: 22px;
-  padding: 10px;
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.4;
 }
-.center-heading {
-  text-align: center;
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: -9999px;
 }
-/**********************************************/
-/*HEADER SECTION*/
-header {
-  height: 69px;
-  border-bottom: 1px solid seashell;
-  display: flex;
-  justify-content: space-between;
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+}
+
+/* =========================
+   HEADER / NAV
+   ========================= */
+.site-header {
   position: sticky;
   top: 0;
-  z-index: 1;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-text);
+  z-index: 10;
 }
 
-header img {
-  height: 50px;
-  width: fit-content;
-  margin-left: 10px;
-}
-/**********************************************/
-/* NAV LINK styleS */
-nav ul {
-  display: flex;
-  gap: 20px;
-  list-style: none; /* REMOVE BULLET MARKS */
-}
+.site-header__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
 
-nav ul li a {
-  color: seashell;
-  text-decoration: underline;
-}
-/**********************************************/
-/* HERO SECTION*/
-section#hero {
-  height: 700px;
-  max-width: 1200px; /* responsive sizing */
-  width: 100%; /* responsive sizing */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(./images/img-mission-background.webp); /* add opacity to background img */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* flex settings */
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  justify-content: space-between;
 }
 
-.heading-background {
+.site-nav__list {
+  display: flex;
+  gap: var(--gap);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav a {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.site-nav a:focus-visible {
+  outline: 2px dashed var(--color-text);
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(var(--color-overlay), var(--color-overlay)),
+    url("./images/img-mission-background.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__content {
+  max-width: var(--max-width);
   text-align: center;
-  background-color: black;
-  width: 1200px;
-}
-/**********************************************/
-/*TEA OF THE MONTH SECTION*/
-section.totm {
-  max-width: 1000px; /* Container responsive size */
-  width: 100%;
-  margin: 0 auto;
+  padding: 2rem;
 }
 
-#totm-container {
-  /* flex settings */
+.hero__title {
+  margin-bottom: 0.5rem;
+}
+
+/* =========================
+   SECTIONS
+   ========================= */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.totm {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.totm__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap);
+}
+
+.totm__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.totm__item figcaption {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* =========================
+   LOCATIONS
+   ========================= */
+.locations {
+  padding: 3rem 1rem;
+  background-image: linear-gradient(var(--color-overlay), var(--color-overlay)),
+    url("./images/img-locations-background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.locations__title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.locations__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 2rem;
 }
 
-#totm-container p {
-  margin-top: 10px;
+.location-card {
+  background-color: var(--color-bg);
+  width: 300px;
+  padding: 1rem;
   text-align: center;
 }
 
-#totm-container img {
-  width: 300px;
-  height: 200px;
+/* =========================
+   FOOTER
+   ========================= */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
-/**********************************************/
-/* LOCATION STYLES */
-div.location-card {
-  /*  OUTSIDE container */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(./images/img-locations-background.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0 1rem;
-  height: 500px;
-}
-
-div.locations {
-  /* FLEX CONTAINER */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-}
-
-.location-item {
-  /* FLEX ITEMS */
-  background-color: black;
-  width: 300px;
-  min-height: 300px;
-  padding: 1rem;
-}
-
-/**********************************************/
-/* FOOTER SECTION STYLES */
-section.f-container {
-  height: 200px;
+.site-footer a {
+  color: var(--color-text);
 }
